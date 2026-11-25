@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+.vercel/
+vercel-public/
+START-HERE.html
+node_modules/
+__pycache__/
+*.py[cod]
+checkpoints/
+*.safetensors
+*.pth
+*.pt

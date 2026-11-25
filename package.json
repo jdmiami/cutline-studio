@@ -1,0 +1,14 @@
+{
+  "name": "cutline-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.10"
+  },
+  "scripts": {
+    "start": "node pod-server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "build": "node scripts/make-preview.mjs"
+  }
+}

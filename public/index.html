@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Cutline Studio — Live AI Director</title>
+  <link rel="stylesheet" href="/studio.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/" aria-label="Cutline Studio home"><span class="mark" aria-hidden="true">◢◤</span><span>CUTLINE <small>STUDIO</small></span></a>
+    <div class="top-status"><span id="engine" class="pill">PREVIEW</span><span id="director" class="pill quiet">SAMPLE CUES</span></div>
+  </header>
+  <main>
+    <div class="intro">
+      <div><div class="eyebrow">THE LIVE EDIT SUITE</div><h1>Direct the <em>next shot.</em></h1><p>Write the premise. Watch the shot. Let the director set up the cut.</p></div>
+      <button id="export" class="outline" disabled>↓ Shot log</button>
+    </div>
+    <div class="workspace">
+      <section class="monitor panel" aria-label="Program monitor">
+        <div class="section-top"><span><span id="tally"></span> PROGRAM MONITOR</span><span id="clock">00:00</span></div>
+        <div class="viewport">
+          <canvas id="video" width="832" height="480" aria-label="Live scene preview"></canvas>
+          <span id="visualMode" class="mode">ILLUSTRATED PREVIEW</span>
+          <div id="viewLabel" class="view-label"><span id="shotNumber">SHOT —</span><strong id="shotTitle">The stage is yours.</strong></div>
+        </div>
+        <progress id="progress" max="1" value="0" aria-label="Current shot progress"></progress>
+        <div class="monitor-bottom"><span id="stateLabel" role="status">Ready to go live</span><button id="start" class="primary">▶ Go live</button><button id="stop" class="outline" hidden>■ Stop</button></div>
+      </section>
+      <aside class="side" aria-label="Director controls">
+        <section class="panel brief">
+          <div class="section-top"><span>01 / FILM BRIEF</span><span class="subtle">STORY + LOOK</span></div>
+          <div class="body">
+            <label for="brief">What are we making?</label>
+            <textarea id="brief" maxlength="800" rows="4">A small amber sailboat crosses a midnight ocean toward a distant lighthouse. Deep cobalt water, warm amber light, and a moody cinematic look. Keep the same boat and lighthouse across shots.</textarea>
+            <details><summary>Set the opening shot</summary><label for="opening">Opening prompt</label><textarea id="opening" maxlength="1250" rows="3" placeholder="Leave blank to open on an establishing shot."></textarea></details>
+          </div>
+        </section>
+        <section class="panel upcoming">
+          <div class="section-top"><span>02 / NEXT SHOT</span><label class="toggle"><input type="checkbox" id="auto" checked> Auto-cut</label></div>
+          <div class="body">
+            <div class="queue-label"><span id="suggestion">Nothing queued</span><span id="source" class="pill quiet">STANDBY</span></div>
+            <label for="next">Next prompt</label>
+            <textarea id="next" maxlength="1250" rows="5" placeholder="The director’s next prompt will appear here." disabled></textarea>
+            <div class="button-row"><button id="take" class="primary" disabled>Take next →</button><button id="save" class="outline" disabled>Save edit</button></div>
+            <label for="note">Give the director a note</label>
+            <div class="note-row"><input id="note" maxlength="420" placeholder="Bring the lighthouse closer…" disabled><button id="draft" class="outline" disabled>Redraft</button></div>
+            <p class="subtle hint">Editing pauses Auto-cut so your text can’t be skipped.</p>
+          </div>
+        </section>
+      </aside>
+    </div>
+    <section class="panel log" aria-label="Shot timeline">
+      <div class="section-top"><span>03 / SHOT TIMELINE</span><span id="shotCount" class="subtle">0 SHOTS</span></div>
+      <ol id="timeline"><li class="empty">Your shots will appear here once you go live.</li></ol>
+    </section>
+    <footer id="footer">Preview uses an illustrated test scene. No video model is running.</footer>
+  </main>
+</body>
+</html>
